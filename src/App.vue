@@ -1,41 +1,42 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+    <v-app-bar app light>
+      <v-container>
+        <div class="d-flex">
+          <div class="d-flex align-center">
+            <span class="text-uppercase text-h4 font-weight-black">knh</span>
+          </div>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+          <v-spacer></v-spacer>
+          <v-btn text to="/reports"> reports </v-btn>
+          <v-btn text to="/login"> login</v-btn>
+        </div>
+      </v-container>
     </v-app-bar>
 
     <v-main>
       <router-view />
     </v-main>
+
+    <v-footer color="secondary darken-3 " dark class="pa-0">
+      <v-container>
+        <v-row no-gutters>
+          <v-col md="4">
+            <h5 class="text-h5 font-weight-bold text-capitalize">desc</h5>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+            beatae totam dicta magnam obcaecati. Fugiat delectus, quo in impedit
+            ipsum, at ab obcaecati nihil doloremque saepe explicabo, officiis
+            laborum sed!
+          </v-col>
+          <v-col
+            class="primary lighten-2 py-4 text-center white--text"
+            cols="12"
+          >
+            {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-footer>
   </v-app>
 </template>
 

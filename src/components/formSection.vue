@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="py-6">
     <div>
       <v-form ref="form" v-model="form_model" lazy-validation>
         <!-- date activePicker -->
@@ -83,69 +83,87 @@
               :rules="age_rules"
             ></v-select>
           </v-col>
+
+          <v-col md="6">
+            <v-text-field
+              v-model="diagnosis_model"
+              :rules="diagnosis_rules"
+              :counter="200"
+              label="Diagnosis"
+              required
+              outlined
+            ></v-text-field>
+          </v-col>
+          <v-col md="6">
+            <v-select
+              :items="get_area_of_error"
+              label="area of error"
+              v-model="area_of_error_model"
+              outlined
+              required
+              :rules="area_of_error_rules"
+            ></v-select>
+          </v-col>
+          <v-col md="6">
+            <v-select
+              :items="get_type_of_error"
+              label="type of error"
+              v-model="type_of_error_model"
+              outlined
+              required
+              :rules="type_of_error_rules"
+            ></v-select>
+          </v-col>
+          <v-col md="6">
+            <v-select
+              :items="outcome_of_error_data"
+              label="outcome of error"
+              outlined
+              required
+              v-model="outcome_of_error_model"
+              :rules="outcome_of_error_rules"
+            ></v-select>
+          </v-col>
+          <v-col md="6">
+            <!-- <p class="font-weight-bold">
+              Possible factors leading to the error *
+            </p> -->
+            <v-textarea
+              name="input-7-1"
+              label="possible factors contributing to the error"
+              auto-grow
+              outlined
+              required
+              v-model="possible_causes_model"
+              :rules="possible_causes_rules"
+            ></v-textarea>
+          </v-col>
+          <v-col md="6">
+            <v-textarea
+              name="input-7-1"
+              label="suggested preventive measures"
+              auto-grow
+              outlined
+              required
+              v-model="suggestions_model"
+              :rules="suggestions_rules"
+            ></v-textarea>
+          </v-col>
+          <v-col cols="12">
+            <p class="font-weight-bold text-uppercase">
+              all the data submitted via this form is secure and confidential
+            </p>
+          </v-col>
+          <v-btn
+            :disabled="!form_model"
+            color="primary"
+            class="mr-4"
+            type="submit"
+            @click="validate"
+          >
+            submit
+          </v-btn>
         </v-row>
-
-        <v-text-field
-          v-model="diagnosis_model"
-          :rules="diagnosis_rules"
-          :counter="200"
-          label="Diagnosis"
-          required
-          outlined
-        ></v-text-field>
-
-        <v-select
-          :items="get_area_of_error"
-          label="area of error"
-          v-model="area_of_error_model"
-          outlined
-          required
-          :rules="area_of_error_rules"
-        ></v-select>
-        <v-select
-          :items="get_type_of_error"
-          label="type of error"
-          v-model="type_of_error_model"
-          outlined
-          required
-          :rules="type_of_error_rules"
-        ></v-select>
-
-        <v-select
-          :items="outcome_of_error_data"
-          label="outcome of error"
-          outlined
-          required
-          v-model="outcome_of_error_model"
-          :rules="outcome_of_error_rules"
-        ></v-select>
-        <v-textarea
-          name="input-7-1"
-          label="possible factors contributing to the error"
-          auto-grow
-          outlined
-          required
-          v-model="possible_causes_model"
-          :rules="possible_causes_rules"
-        ></v-textarea>
-        <v-textarea
-          name="input-7-1"
-          label="suggested preventive measures"
-          auto-grow
-          outlined
-          required
-          v-model="suggestions_model"
-          :rules="suggestions_rules"
-        ></v-textarea>
-        <v-btn
-          :disabled="!form_model"
-          color="success"
-          class="mr-4"
-          type="submit"
-          @click="validate"
-        >
-          submit
-        </v-btn>
       </v-form>
     </div>
   </div>
